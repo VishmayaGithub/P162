@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Virtual Bowling</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>  
+    <script src="Ball.js"></script> 
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+
+
+    </head>
+    <body>
+        <a-scene id="scene" background = "color : #f7dcf5">
+
+            <a-assets>        
+                <a-asset-item
+                  id="pin"
+                  src="./models/pin/scene.gltf"
+                ></a-asset-item>
+                
+              </a-assets>
+
+            <!--Light-->
+     
+      <!--Camera and Cursor-->
+      <a-entity
+        id="camera"
+        camera
+        position="0 1.6 0"
+        wasd-controls
+        look-controls="pointerLockEnabled: false"        
+      >
+        
+        <a-cursor></a-cursor>        
+      </a-entity>
+
+      <a-plane color = "grey" height = "20" width = "10" position = "0 0 -13"></a-plane>
+      <a-box color = "black" height = "21" width = "1.5" position = "5 0 -13" depth = "1" static-body></a-box>
+      <a-box color = "black" height = "21" width = "1.5" position = "-5 0 -13" depth = "1" static-body></a-box>
+      <a-box color = "black" height = "1" width = "11" position = "0 10 -13" depth = "6" static-body></a-box>
+  
+      <!--Ball-->
+      <a-entity ball></a-entity>
+
+      <a-entity position="-3 0 -9" color="tomato" depth="1" height="1" width="1" gltf-model = "#pin" scale = "6 6 6" dynamic-body></a-entity>
+      <a-entity position="-4.8 2 -9" color="tomato" depth="1" height="1" width="1" gltf-model = "#pin" scale = "6 6 6" dynamic-body></a-entity>
+      <a-entity position="4.8 2 -9" color="tomato" depth="1" height="1" width="1" gltf-model = "#pin" scale = "6 6 6" dynamic-body></a-entity>
+
+      <a-entity position="0 2 -9" color="tomato" depth="1" height="1" width="1" gltf-model = "#pin" scale = "6 6 6" dynamic-body></a-entity>
+
+      <a-entity position="3 1 -9" color="tomato" depth="1" height="1" width="1" gltf-model = "#pin" scale = "6 6 6" dynamic-body></a-entity>
+
+      <a-entity position="-2 1 -11" color="tomato" depth="1" height="1" width="1" gltf-model = "#pin" scale = "6 6 6" dynamic-body></a-entity>
+      <a-entity position="-3 1 -11" color="tomato" depth="1" height="1" width="1" gltf-model = "#pin" scale = "6 6 6" dynamic-body></a-entity>
+      <a-entity position="3 1 -11" color="tomato" depth="1"  width="1" gltf-model = "#pin" scale = "6 6 6" dynamic-body></a-entity>
+
+      <a-entity position="1 1 -11" color="tomato" depth="1" height="1" width="1" gltf-model = "#pin" scale = "6 6 6" dynamic-body></a-entity>
+
+      <a-entity position="0 1 -12" gltf-model = "#pin" scale = "6 6 6" dynamic-body></a-entity>
+      <!--Ground-->
+      <a-plane
+        id="ground"
+        static-body
+        position="0 0 0"
+        rotation="-90 0 0"
+        height="200"
+        width="10"
+        color="#FF69B4"
+        static-body
+        visible="true"
+      >
+
+      
+    </a-plane>
+
+    <a-cylinder position = "-6 0 0" radius = "0.5" height = "200" color = "red" rotation = "90 0 0" static-body></a-cylinder>
+      <a-cylinder position = "6 0 0" radius = "0.5" height = "200" color = "red" rotation="90 0 0" static-body></a-cylinder>
+            
+        </a-scene>
+    </body>
+</html>
